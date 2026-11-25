@@ -1,0 +1,12 @@
+SYNTHETIC SAMPLE – invented project, no real customer data
+Transcript of the site manager's walk-through VIDEO (what ElevenLabs Speech-to-Text returns).
+The site manager films what has been newly built since last week and describes it while filming.
+This replaces the old way: separate photos + a description typed by hand later.
+Timestamps refer to the video, so key frames can be taken as photos.
+
+[00:00] New project, family house, Family C.
+[00:06] Today was the site survey – nothing built yet, I'm filming the roof before installation.
+[00:15] Tiled roof, facing south, 22 panels fit, that's 9.9 kWp.
+[00:25] Here in the garage will be the wallbox; battery 15 kWh goes into the technical room.
+[00:35] Installation planned for early December.
+[00:40] The client has not signed the contract yet – we are waiting.

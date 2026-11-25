@@ -1,0 +1,21 @@
+company,name,location,type,power,year,url
+AGRO NWT,Dětská skupina Ivanovice na Hané,Ivanovice na Hané,Building + PV,,,https://agro.nwt.cz/reference/detska-skupina-ivanovice-na-hane
+AGRO NWT,BESS Svitavy,Svitavy,Battery storage,1.2 MW / 5 MWh,2026,https://agro.nwt.cz/reference/bess-svitavy
+AGRO NWT,FVE Kroměříž Bílany (repowering),Kroměříž-Bílany,Ground-mounted PV,4.538 MWp,2025,https://agro.nwt.cz/reference/fve-kromeriz-bilany
+AGRO NWT,FVE obec Bělotín,Bělotín,Rooftop PV + battery (3 municipal buildings),,2025,https://agro.nwt.cz/reference/fve-obec-belotin
+AGRO NWT,Rekonstrukce školy Halenkovice,Halenkovice,Building reconstruction,,2025,https://agro.nwt.cz/reference/rekonstrukce-skoly-v-halenkovicich
+AGRO NWT,FVE Svatopetrská Brno,Brno,Rooftop PV,99 kWp,,https://agro.nwt.cz/reference/fve-svatopetrska-brno
+AGRO NWT,FVE Záchranná služba Zlínský kraj,Zlín Region,Rooftop PV (5 plants),,,https://agro.nwt.cz/reference/fve-zachranna-sluzba-zlinsky-kraj
+AGRO NWT,FVE Střelice,Střelice,Rooftop PV (3 municipal buildings),,,https://agro.nwt.cz/reference/fve-strelice
+AGRO NWT,Hala Magsy Fryšták,Fryšták,Warehouse hall,,,https://agro.nwt.cz/reference/hala-magsy-frystak
+AGRO NWT,Steelmet Staré Město,Staré Město u Uh. Hradiště,Rooftop PV (2 roofs),46.75 kWp,,https://agro.nwt.cz/reference/steelmet
+AGRO NWT,Gelpo Uherský Brod,Uherský Brod,Rooftop PV incl. permit and grid connection,348.15 kWp,,https://agro.nwt.cz/reference/gelpo
+AGRO NWT,OC Futurum Brno,Brno,Rooftop PV on parking house (1816 panels 550 Wp; 908 optimizers; E-W),998.8 kWp,,https://agro.nwt.cz/reference/futurum-brno
+AGRO NWT,FVE RD Halenkovice,Halenkovice,Family house ground PV + battery,9.99 kWp,,https://agro.nwt.cz/reference/fve-rd-halenkovice
+ENERGO NWT,FVE s bateriemi Pekárna Javor,Zlínsko,Rooftop PV + battery with blackout backup,86.42 kWp / 233 kWh,2021,https://energo.nwt.cz/project/fotovoltaicka-elektrarna-pekarna-javor/
+ENERGO NWT,Energeticky soběstačná dřevěnice,Valašsko,Off-grid PV + battery,,,https://energo.nwt.cz/project/unikatni-drevenice-na-valassku-plne-energeticky-sobestacna/
+ENERGO NWT,FVE s bateriemi Ostrava,Ostrava,PV + battery,,,https://energo.nwt.cz/project/fotovoltaicka-elektrarna-s-bateriemi-ostrava/
+ENERGO NWT,FVE Vrbno pod Pradědem,Vrbno pod Pradědem,PV,,,https://energo.nwt.cz/project/fotovoltaicka-elektrarna-vrbno-pod-pradedem/
+ENERGO NWT,FVE s bateriemi Zlín,Zlín,PV + battery,,,https://energo.nwt.cz/project/fotovoltaicka-elektrarna-s-bateriemi-zlin/
+ENERGO NWT,FVE s bateriemi Hluk,Hluk,PV + battery,,,https://energo.nwt.cz/project/fotovoltaicka-elektrarna-s-bateriemi-hluk/
+ENERGO NWT,Kogenerační jednotka Kravaře (zimní stadion a aquapark),Kravaře,Cogeneration unit,,,https://energo.nwt.cz/project/doplneni-vyroby-tepla-a-elektriny-pro-zimni-stadion-a-aquapark-pomoci-kogeneracni-jednotky-kravare/

@@ -1,0 +1,11 @@
+SAMPLE – technical facts are from our public website reference; weekly progress, quotes and dates are invented.
+Real photos of this project: ../../reference_photos/06_PV_battery_bakery/
+Project: Rooftop PV with battery and blackout backup – Pekárna Javor (bakery), Zlín region
+Company: ENERGO NWT
+Public reference: https://energo.nwt.cz/project/fotovoltaicka-elektrarna-pekarna-javor/
+
+PV power 86.42 kWp, battery 233 kWh, max. charge/discharge power 90 kVA.
+Backup function: during a grid outage part of the PV keeps running, so the oven conveyor keeps moving
+and products don't burn; limited operation possible for several days.
+Bakery is known in the region (e.g. traditional wedding pastries).
+Consent to a reference: YES (already published on our website with the bakery name).

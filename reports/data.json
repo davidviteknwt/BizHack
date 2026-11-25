@@ -1,0 +1,222 @@
+{
+ "summary": {
+  "week": "2026-W47",
+  "created_at": "2026-11-25 12:25",
+  "headline": "The portfolio is progressing well with several projects nearing completion and a few requiring urgent management attention.",
+  "totals": {
+   "projects": 6,
+   "contracts_missing": 1,
+   "new_projects": 1,
+   "open_issues": 2,
+   "approvals_present": 3
+  },
+  "attention": [
+   {
+    "project": "PV on a family house with battery and EV charger (Family C)",
+    "text": "Contract not signed yet (draft only) and waiting for the client to sign the contract."
+   },
+   {
+    "project": "Battery storage for an existing PV plant (Client B)",
+    "text": "No building office approval in the folder yet."
+   },
+   {
+    "project": "Rooftop PV + battery on three municipal buildings – Bělotín",
+    "text": "No building office approval in the folder yet."
+   }
+  ],
+  "highlights": [
+   {
+    "project": "Rooftop PV on a factory hall (Client A)",
+    "text": "All 412 panels installed with a total capacity of 224.5 kWp."
+   },
+   {
+    "project": "Rooftop PV on the parking house – OC Futurum, Brno",
+    "text": "Completed installation of all 1,816 solar panels with a total power output of 998.8 kWp."
+   },
+   {
+    "project": "Rooftop PV + battery with blackout backup – Pekárna Javor",
+    "text": "All solar panels installed with a battery system in place, 233 kWh."
+   }
+  ],
+  "checklist": [
+   {
+    "name": "Rooftop PV on a factory hall (Client A)",
+    "company": "AGRO NWT",
+    "latest_week": "2026-W47",
+    "weeks": 2,
+    "signed": true,
+    "draft": false,
+    "approval": true,
+    "summary": "- All 412 panels installed on the roof.\n- Total capacity: 224.5 kWp.\n- Both inverters mounted.\n- Cabling approximately 80% complete.\n- Awaiting new circuit breaker delivery.",
+    "issues": [
+     {
+      "severity": "warning",
+      "text": "Awaiting delivery of new circuit breaker from supplier."
+     }
+    ],
+    "photo": {
+     "dir": "01_PV_roof_factory_hall",
+     "file": "dji-0622-scaled-5641e6.jpg",
+     "label": "Sample photo (no photo selected yet)"
+    }
+   },
+   {
+    "name": "Battery storage for an existing PV plant (Client B)",
+    "company": "AGRO NWT",
+    "latest_week": "2026-W47",
+    "weeks": 2,
+    "signed": true,
+    "draft": false,
+    "approval": false,
+    "summary": "- Battery container installed on the slab.\n- Wiring of the new low-voltage switchboard ongoing.\n- Existing transformer remains in place.\n- Commissioning planned in 14 days.",
+    "issues": [],
+    "photo": {
+     "dir": "02_BESS_container",
+     "file": "img-0461-434145.jpg",
+     "label": "Sample photo (no photo selected yet)"
+    }
+   },
+   {
+    "name": "PV on a family house with battery and EV charger (Family C)",
+    "company": "ENERGO NWT",
+    "latest_week": "2026-W47",
+    "weeks": 1,
+    "signed": false,
+    "draft": true,
+    "approval": false,
+    "summary": "- Conducted site survey.\n- Confirmed roof suitability for 22 panels (9.9 kWp).\n- Installation planned for early December.\n- Awaiting contract signature.",
+    "issues": [
+     {
+      "severity": "blocker",
+      "text": "Contract not signed yet (draft only)"
+     },
+     {
+      "severity": "warning",
+      "text": "Waiting for the client to sign the contract."
+     }
+    ],
+    "photo": {
+     "dir": "03_PV_family_house_battery",
+     "file": "fve-halenkovice1-scaled-0fbfb0.jpg",
+     "label": "Sample photo (no photo selected yet)"
+    }
+   },
+   {
+    "name": "Rooftop PV on the parking house – OC Futurum, Brno",
+    "company": "AGRO NWT",
+    "latest_week": "2026-W47",
+    "weeks": 2,
+    "signed": true,
+    "draft": false,
+    "approval": true,
+    "summary": "- Completed installation of all 1,816 solar panels.\n- Achieved total power output of 998.8 kWp.\n- Connected all 908 optimizers.\n- Finished cable route to the main switchboard.",
+    "issues": [],
+    "photo": {
+     "dir": "04_PV_roof_parking_house",
+     "file": "dji-0587-scaled-64a9fb.jpg",
+     "label": "Sample photo (no photo selected yet)"
+    }
+   },
+   {
+    "name": "Rooftop PV + battery on three municipal buildings – Bělotín",
+    "company": "AGRO NWT",
+    "latest_week": "2026-W47",
+    "weeks": 2,
+    "signed": true,
+    "draft": false,
+    "approval": false,
+    "summary": "- Solar panels installed on building one.\n- Battery storage cabinet placed in building one.\n- Wiring in progress.\n- New roof covering completed on building two.\n- Rails installation scheduled for next week.\n- Roof replacement for building three starts Wednesday.",
+    "issues": [],
+    "photo": {
+     "dir": "05_PV_roof_municipal_buildings",
+     "file": "foto-1-belotin-new-92dbf9.jpg",
+     "label": "Sample photo (no photo selected yet)"
+    }
+   },
+   {
+    "name": "Rooftop PV + battery with blackout backup – Pekárna Javor",
+    "company": "ENERGO NWT",
+    "latest_week": "2026-W47",
+    "weeks": 2,
+    "signed": true,
+    "draft": false,
+    "approval": true,
+    "summary": "- All solar panels installed, 86.42 kWp.\n- Battery system in place, 233 kWh.\n- Backup circuit for oven conveyor wired.\n- Blackout test planned for next Thursday.",
+    "issues": [],
+    "photo": {
+     "dir": "06_PV_battery_bakery",
+     "file": "DJI_0058-scaled.jpg",
+     "label": "Selected for Instagram"
+    }
+   }
+  ]
+ },
+ "site": [
+  {
+   "code": "06_PV_battery_bakery",
+   "title": "Rooftop PV + battery with blackout backup – Pekárna Javor",
+   "company": "ENERGO NWT",
+   "week": "2026-W47",
+   "entry_title": "Week 47 Progress - Pekárna Javor",
+   "entry": "- All solar panels installed, 86.42 kWp.\n- Battery system in place, 233 kWh.\n- Backup circuit for oven conveyor wired.\n- Blackout test planned for next Thursday.",
+   "issues": [],
+   "next": [
+    "Conduct blackout test with the owner next Thursday."
+   ],
+   "docs": [
+    "contract_signed.pdf",
+    "building_office_approval.pdf"
+   ],
+   "fact": {
+    "status": "ok",
+    "n": 5
+   },
+   "secs": 10.3,
+   "photos_dir": "06_PV_battery_bakery",
+   "photos": [
+    "DJI_0058-scaled.jpg",
+    "P5120276-scaled.jpg",
+    "P5120302-scaled.jpg",
+    "P5120322-scaled.jpg"
+   ],
+   "photo_note": "Photos: published reference photos of the project.",
+   "transcript": "[00:00] Week 47, Pekárna Javor.\n[00:06] New this week: all panels are installed, 86.42 kWp.\n[00:15] The battery is in place – 233 kWh, here are the cabinets in the technical room.\n[00:28] Backup circuit for the oven conveyor is wired: if the grid fails, the conveyor keeps running so the bread doesn't burn.\n[00:45] Blackout test planned with the owner next Thursday after the morning shift."
+  },
+  {
+   "code": "01_PV_roof_factory_hall",
+   "title": "Rooftop PV on a factory hall (Client A)",
+   "company": "AGRO NWT",
+   "week": "2026-W47",
+   "entry_title": "Week 47 Progress - Rooftop PV Installation",
+   "entry": "- All 412 panels installed on the roof.\n- Total capacity: 224.5 kWp.\n- Both inverters mounted.\n- Cabling approximately 80% complete.\n- Awaiting new circuit breaker delivery.",
+   "issues": [
+    {
+     "severity": "warning",
+     "text": "Awaiting delivery of new circuit breaker from supplier."
+    }
+   ],
+   "next": [
+    "Receive the new circuit breaker on Monday.",
+    "Conduct electrical inspection on the 28th."
+   ],
+   "docs": [
+    "contract_signed.pdf",
+    "building_office_approval.pdf"
+   ],
+   "fact": {
+    "status": "ok",
+    "n": 12
+   },
+   "secs": 7.8,
+   "photos_dir": "01_PV_roof_factory_hall",
+   "photos": [
+    "dji-0622-scaled-5641e6.jpg",
+    "p1366024-2-scaled-cc8ed6.jpg",
+    "p1366103-scaled-e7b0b7.jpg",
+    "p1366195-scaled-d61ea0.jpg"
+   ],
+   "photo_note": "Sample project: photos are illustrative (similar real project).",
+   "transcript": "[00:00] Week 47, factory hall, Client A.\n[00:06] New this week: all 412 panels are on the roof, that's 224.5 kWp. This is the view from the north edge.\n[00:22] Now I'm in the switchboard room – both inverters are mounted, cabling is about 80 percent done.\n[00:40] The client was at the inspection meeting on Tuesday and was satisfied.\n[00:48] Still missing: the new circuit breaker from the supplier, delivery on Monday.\n[00:55] Electrical inspection is planned for the 28th."
+  }
+ ]
+}

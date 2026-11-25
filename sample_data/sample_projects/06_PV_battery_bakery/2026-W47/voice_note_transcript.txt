@@ -1,0 +1,10 @@
+SAMPLE – invented weekly progress for a real, already published project (facts from the public reference).
+Transcript of the site manager's walk-through VIDEO (what ElevenLabs Speech-to-Text returns).
+The site manager films what has been newly built since last week and describes it while filming.
+Timestamps refer to the video, so key frames can be taken as photos.
+
+[00:00] Week 47, Pekárna Javor.
+[00:06] New this week: all panels are installed, 86.42 kWp.
+[00:15] The battery is in place – 233 kWh, here are the cabinets in the technical room.
+[00:28] Backup circuit for the oven conveyor is wired: if the grid fails, the conveyor keeps running so the bread doesn't burn.
+[00:45] Blackout test planned with the owner next Thursday after the morning shift.

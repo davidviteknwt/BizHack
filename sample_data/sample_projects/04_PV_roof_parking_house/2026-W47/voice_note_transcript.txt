@@ -1,0 +1,10 @@
+SAMPLE – invented weekly progress for a real, already published project (facts from the public reference).
+Transcript of the site manager's walk-through VIDEO (what ElevenLabs Speech-to-Text returns).
+The site manager films what has been newly built since last week and describes it while filming.
+Timestamps refer to the video, so key frames can be taken as photos.
+
+[00:00] Week 47, OC Futurum.
+[00:06] New this week: the south half is done – all 1,816 panels are installed, 998.8 kWp.
+[00:20] All 908 optimizers are connected; we are finishing the strings to the inverters under the canopy.
+[00:35] Cable route to the centre's main switchboard is laid – this is the cable tray along the ramp.
+[00:50] Next: connection to the switchboard during the night shutdown on Tuesday, then commissioning.

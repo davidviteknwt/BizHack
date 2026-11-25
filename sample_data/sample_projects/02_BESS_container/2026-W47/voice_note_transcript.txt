@@ -1,0 +1,11 @@
+SYNTHETIC SAMPLE – invented project, no real customer data
+Transcript of the site manager's walk-through VIDEO (what ElevenLabs Speech-to-Text returns).
+The site manager films what has been newly built since last week and describes it while filming.
+This replaces the old way: separate photos + a description typed by hand later.
+Timestamps refer to the video, so key frames can be taken as photos.
+
+[00:00] Week 47, Client B.
+[00:05] New this week: the battery container arrived. The crane set it on the slab without problems, it took two hours – here it is.
+[00:20] Inside the switchboard: we are wiring the new low-voltage switchboard.
+[00:33] The existing transformer stays as it is.
+[00:40] Commissioning planned within fourteen days, then one day of operator training.

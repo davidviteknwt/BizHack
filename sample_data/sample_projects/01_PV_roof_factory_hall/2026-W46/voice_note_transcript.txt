@@ -1,0 +1,12 @@
+SYNTHETIC SAMPLE – invented project, no real customer data
+Transcript of the site manager's walk-through VIDEO (what ElevenLabs Speech-to-Text returns).
+The site manager films what has been newly built since last week and describes it while filming.
+This replaces the old way: separate photos + a description typed by hand later.
+Timestamps refer to the video, so key frames can be taken as photos.
+
+[00:00] Week 46, factory hall, Client A. I'm on the roof now.
+[00:08] What's new since last week: the mounting structure is finished on the whole roof, all rails anchored.
+[00:20] Here you can see the first panels – we started laying them today, about 120 of 412 are on.
+[00:35] This bay on the left stays empty – structural limits, we moved the layout, we lose about 8 panels. The designer approved it.
+[00:50] Weather was good, no injuries this week.
+[00:58] Next week: finish the panels and start the cabling to the switchboard room.

@@ -1,0 +1,175 @@
+{
+  "name": "BizHack 02 – Weekly management summary + document checklist",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "management-summary",
+        "responseMode": "responseNode",
+        "options": {}
+      },
+      "id": "b817c99c-65ef-5508-a2fc-e44c1e7bcef6",
+      "name": "Webhook management-summary",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [
+        200,
+        300
+      ],
+      "webhookId": "baa2ecf5-1b78-5335-945d-20347996c379"
+    },
+    {
+      "parameters": {
+        "jsCode": "// Document checklist per project, from the file names found in the project folder\nconst raw = $input.first().json;\nconst b = raw.body ?? raw;\n\nconst SIGNED = /(contract[_ -]?signed|signed[_ -]?contract|smlouva.*podepsan)/i;\nconst NOT_SIGNED = /(not[_ -]?signed|nepodepsan|draft|navrh|návrh)/i;\nconst APPROVAL = /(building[_ -]?office[_ -]?approval|occupancy|souhlas|kolaudac)/i;\n\nconst projects = (b.projects || []).map(p => {\n  const docs = (p.documents || []).map(x => (typeof x === 'string' ? x : x.name || ''));\n  const contractSigned = docs.some(n => SIGNED.test(n) && !NOT_SIGNED.test(n));\n  const contractDraft = docs.some(n => NOT_SIGNED.test(n));\n  const approval = docs.some(n => APPROVAL.test(n));\n  const entries = (p.entries || []).slice().sort((a, c) => String(a.week).localeCompare(String(c.week)));\n  const latest = entries[entries.length - 1] || null;\n\n  const flags = [];\n  if (!contractSigned) flags.push({ severity: 'blocker', text: contractDraft ? 'Contract not signed yet (draft only)' : 'No contract in the project folder' });\n  if (!approval) flags.push({ severity: 'info', text: 'No building office approval in the folder yet' });\n  if (entries.length === 0) flags.push({ severity: 'warning', text: 'No weekly report yet' });\n\n  return {\n    id: p.id ?? null,\n    name: p.name,\n    company: p.company || '',\n    weeks_reported: entries.length,\n    latest_week: latest?.week ?? null,\n    is_new_project: entries.length <= 1,\n    documents: docs,\n    checklist: {\n      contract_signed: contractSigned,\n      contract_draft_only: !contractSigned && contractDraft,\n      building_office_approval: approval,\n    },\n    flags,\n    open_issues: (latest?.issues || []).filter(i => (i.severity || 'info') !== 'info'),\n    latest_summary: latest?.project_page_entry?.body ?? latest?.summary ?? '',\n  };\n});\n\nreturn [{\n  json: {\n    started_ms: Date.now(),\n    week: b.week || '',\n    model: b.model || 'gpt-4o-mini',\n    language: b.language || 'en',\n    projects,\n  },\n}];\n"
+      },
+      "id": "079e3d8f-6dcb-5122-8549-06a579a82a36",
+      "name": "Document checklist",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        430,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "jsCode": "// Prompts for the one-page management summary, based only on the checklist data\nconst d = $input.first().json;\nconst system_prompt = `You write the weekly management summary for the CEO and the head of construction of a Czech construction company (solar, battery storage, buildings).\nUse ONLY the data given. Never invent numbers or facts. Language: \"${d.language}\".\nReturn ONLY a JSON object:\n{\n  \"headline\": string,\n  \"attention\": [{\"project\": string, \"text\": string}],\n  \"highlights\": [{\"project\": string, \"text\": string}],\n  \"summary_markdown\": string\n}\n- headline: one sentence on how the portfolio is doing this week.\n- attention: what management must act on, blockers first (unsigned contracts, delays, waiting for the client).\n- highlights: progress worth sharing, good candidates for marketing.\n- summary_markdown: the full one-page summary in Markdown: headline, a table (Project | Latest week | Progress | Contract | Approval | Flags), then Attention and Highlights.`;\nconst user_prompt = `Week: ${d.week}\\n\\nPROJECTS (JSON):\\n${JSON.stringify(d.projects, null, 1)}`;\nreturn [{ json: { ...d, system_prompt, user_prompt } }];\n"
+      },
+      "id": "750a36bb-150a-57dc-8e8b-c0db7c86b01c",
+      "name": "Build summary request",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        660,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://api.openai.com/v1/chat/completions",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={{ JSON.stringify($json.body) }}",
+        "options": {
+          "timeout": 120000
+        }
+      },
+      "id": "03ef4be8-c359-5c47-a02c-dd052709363f",
+      "name": "OpenAI – management summary",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.2,
+      "position": [
+        890,
+        300
+      ],
+      "notes": "Credential: Header Auth  ->  Name: Authorization  /  Value: Bearer sk-...",
+      "notesInFlow": true
+    },
+    {
+      "parameters": {
+        "jsCode": "// Combine the deterministic document checklist with the LLM summary\nconst d = $('Build summary prompts').first().json;\nconst findText = (x) => {\n  if (x == null) return null;\n  if (Array.isArray(x)) { for (const v of x) { const t = findText(v); if (t != null) return t; } return null; }\n  if (typeof x === 'object') {\n    if (x.text != null) return x.text;\n    for (const k of ['output', 'content', 'message', 'choices']) { if (x[k] != null) { const t = findText(x[k]); if (t != null) return t; } }\n  }\n  return null;\n};\nconst raw = findText($input.first().json);\nlet out;\nif (raw && typeof raw === 'object') out = raw;\nelse {\n  const s = String(raw ?? '').replace(/^\\s*```(?:json)?\\s*/i, '').replace(/\\s*```\\s*$/, '');\n  try { out = JSON.parse(s); } catch (e) { throw new Error('The model did not return valid JSON: ' + s.slice(0, 400)); }\n}\nconst totals = {\n  projects: d.projects.length,\n  contracts_missing: d.projects.filter((p) => !p.checklist.contract_signed).length,\n  approvals_present: d.projects.filter((p) => p.checklist.building_office_approval).length,\n  new_projects: d.projects.filter((p) => p.is_new_project).length,\n  open_issues: d.projects.reduce((n, p) => n + p.open_issues.length, 0),\n};\nreturn [{\n  json: {\n    week: d.week,\n    generated_at: new Date().toISOString(),\n    totals,\n    headline: out.headline ?? '',\n    attention: out.attention ?? [],\n    highlights: out.highlights ?? [],\n    summary_markdown: out.summary_markdown ?? '',\n    checklist: d.projects,\n    processing_seconds: Math.round((Date.now() - d.started_ms) / 100) / 10,\n  },\n}];\n"
+      },
+      "id": "e5dabb7d-52f7-57c0-bdf5-13aa782e4ea8",
+      "name": "Combine summary + checklist",
+      "type": "n8n-nodes-base.code",
+      "typeVersion": 2,
+      "position": [
+        1120,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "firstIncomingItem",
+        "options": {}
+      },
+      "id": "444baa3b-d442-50db-aa14-d0e802b7f175",
+      "name": "Respond",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1.1,
+      "position": [
+        1350,
+        300
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Weekly management summary\n**Input** (POST JSON): week, projects[] {name, company, documents[] (file names), entries[] (outputs of the site-report workflow)}.\n\n**Output**: totals, document checklist per project (contract signed? building office approval?), attention list, highlights, one-page Markdown summary.",
+        "width": 640,
+        "height": 220
+      },
+      "id": "cb73742d-1fbf-55da-aa54-2d29e02eb3dd",
+      "name": "Note c094",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        160,
+        -120
+      ]
+    }
+  ],
+  "connections": {
+    "Webhook management-summary": {
+      "main": [
+        [
+          {
+            "node": "Document checklist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Document checklist": {
+      "main": [
+        [
+          {
+            "node": "Build summary request",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Build summary request": {
+      "main": [
+        [
+          {
+            "node": "OpenAI – management summary",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "OpenAI – management summary": {
+      "main": [
+        [
+          {
+            "node": "Combine summary + checklist",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Combine summary + checklist": {
+      "main": [
+        [
+          {
+            "node": "Respond",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "pinData": {}
+}
