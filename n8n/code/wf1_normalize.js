@@ -15,6 +15,7 @@ const input = {
   week: b.week ?? '',
   media_url: b.media_url ?? b.video_url ?? b.audio_url ?? '',
   transcript: String(b.transcript ?? '').trim(),
+  notes_text: String(b.notes_text ?? '').trim(), // typed or dictated notes from the app
   photo_urls: Array.isArray(b.photo_urls) ? b.photo_urls.slice(0, 8) : [],
   output_language: b.output_language ?? 'en',
   customer_language: b.customer_language ?? b.output_language ?? 'en',
@@ -22,8 +23,14 @@ const input = {
   stt_model: b.stt_model ?? 'scribe_v1',
   model: b.model ?? 'gpt-4o-mini',
 };
-if (!input.transcript && !input.media_url) {
-  throw new Error('Send either "transcript" (text) or "media_url" (public URL of the walk-through video).');
+if (!input.transcript && !input.media_url && !input.notes_text) {
+  throw new Error('Send "transcript", "notes_text" or "media_url" (public URL of the walk-through video or audio note).');
 }
-input.needs_stt = !input.transcript && !!input.media_url;
+// New media from the app (force_stt) is always transcribed, even if an older transcript exists
+input.needs_stt = !!input.media_url && (!input.transcript || b.force_stt === true);
+if (input.needs_stt) input.transcript = '';
+// Without speech-to-text, typed/dictated notes become (part of) the transcript right away
+if (!input.needs_stt && input.notes_text) {
+  input.transcript = input.transcript ? `${input.transcript}\n[notes] ${input.notes_text}` : input.notes_text;
+}
 return [{ json: input }];

@@ -21,6 +21,8 @@ for (const w of words) {
   }
 }
 if (cur.length) lines.push(`${fmt(start ?? 0)} ${cur.join(' ')}`);
-const transcript = lines.length ? lines.join('\n') : String(stt.text || '').trim();
-if (!transcript) throw new Error('Speech-to-text returned no text. Check the media_url and the ElevenLabs key.');
+let transcript = lines.length ? lines.join('\n') : String(stt.text || '').trim();
+if (!transcript && !input.notes_text) throw new Error('Speech-to-text returned no text. Check the media_url and the ElevenLabs key.');
+// Typed or dictated notes sent together with the video/audio are appended after the spoken transcript
+if (input.notes_text) transcript = transcript ? `${transcript}\n[notes] ${input.notes_text}` : input.notes_text;
 return [{ json: { ...input, transcript, stt_language_detected: stt.language_code ?? null } }];
