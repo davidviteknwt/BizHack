@@ -19,12 +19,14 @@ Return ONLY one JSON object with exactly these keys:
   "customer_report": {"subject": string, "body": string},
   "project_page_entry": {"title": string, "body": string},
   "social_draft": {"text_en": string, "text_cs": string, "hashtags": [string]},
+  "web_news": {"title_en": string, "body_en": string, "title_cs": string, "body_cs": string},
   "issues": [{"text": string, "severity": "info" | "warning" | "blocker"}],
   "next_steps": [string]
 }
 - customer_report: weekly progress e-mail to the client in language "${d.customer_language}", 80-150 words: what was built this week, what comes next, anything the client must do.
 - project_page_entry: chronicle entry in language "${d.output_language}", 40-90 words, short lines starting with "- ".
-- social_draft: one post for website news / LinkedIn / Instagram, 40-70 words, in English (text_en) and Czech (text_cs), 3-6 hashtags.
+- social_draft: one post for LinkedIn / Instagram, 40-70 words, in English (text_en) and Czech (text_cs), 3-6 hashtags.
+- web_news: a short news article for the "News" section of the NWT company website, in English and Czech: a factual title (max 10 words) and 90-160 words of body in 2-3 short paragraphs (what was built, the technology, what comes next). No hashtags, no emojis. Same consent rule as the social draft.
 - issues: delays, missing material, waiting for the client, safety. Empty list if none.`;
 
 const user_prompt = `Project: ${d.project.name}

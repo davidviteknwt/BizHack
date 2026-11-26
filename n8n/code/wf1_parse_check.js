@@ -50,6 +50,8 @@ const texts = {
   project_page_entry: `${out.project_page_entry?.title ?? ''} ${out.project_page_entry?.body ?? ''}`,
   social_en: out.social_draft?.text_en ?? '',
   social_cs: out.social_draft?.text_cs ?? '',
+  web_news_en: `${out.web_news?.title_en ?? ''} ${out.web_news?.body_en ?? ''}`,
+  web_news_cs: `${out.web_news?.title_cs ?? ''} ${out.web_news?.body_cs ?? ''}`,
 };
 const unverified = [];
 for (const [field, t] of Object.entries(texts)) {
@@ -60,7 +62,7 @@ for (const [field, t] of Object.entries(texts)) {
 }
 
 // ---- Consent check -------------------------------------------------------
-const social = `${texts.social_en} ${texts.social_cs}`.toLowerCase();
+const social = `${texts.social_en} ${texts.social_cs} ${texts.web_news_en} ${texts.web_news_cs}`.toLowerCase();
 const client = (d.project.client_name || '').trim().toLowerCase();
 const consent_ok = d.project.consent_name_allowed || !client || !social.includes(client);
 
@@ -86,6 +88,7 @@ return [{
     customer_report: out.customer_report ?? null,
     project_page_entry: out.project_page_entry ?? null,
     social_draft: out.social_draft ?? null,
+    web_news: out.web_news ?? null,
     best_photo_url,
     best_photo_reason: suggested_photos[0]?.reason ?? null,
     suggested_photos,
